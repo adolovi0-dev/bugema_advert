@@ -1,0 +1,19 @@
+{
+  "name": "bugema-advert-platform",
+  "version": "1.0.0",
+  "description": "Bugema University Advert Platform: lost & found items, adverts and job listings (Node.js, Express, MongoDB)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.0",
+    "multer": "^1.4.5-lts.1"
+  }
+}

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bugema University Advert Platform</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-inner">
+      <div>
+        <h1>Bugema University Advert Platform</h1>
+        <p>Lost &amp; found items, adverts and job opportunities</p>
+      </div>
+      <button id="newBtn" class="btn primary">+ Post something</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="toolbar">
+      <div class="chips" id="chips">
+        <button class="chip active" data-cat="all">All</button>
+        <button class="chip" data-cat="lost">Lost</button>
+        <button class="chip" data-cat="found">Found</button>
+        <button class="chip" data-cat="advert">Adverts</button>
+        <button class="chip" data-cat="job">Jobs</button>
+      </div>
+      <input id="search" type="search" placeholder="Search title, description, place…">
+    </div>
+    <div id="grid" class="grid"></div>
+    <p id="empty" class="empty" hidden>Nothing here yet. Be the first to post!</p>
+  </main>
+
+  <dialog id="dlg">
+    <form id="postForm" enctype="multipart/form-data">
+      <h2 id="formTitle">New post</h2>
+
+      <label>Type
+        <select name="category" required>
+          <option value="lost">Lost item</option>
+          <option value="found">Found item</option>
+          <option value="advert">Advert</option>
+          <option value="job">Job</option>
+        </select>
+      </label>
+      <label>Title <input name="title" maxlength="120" required placeholder="e.g. Black Samsung phone"></label>
+      <label>Description <textarea name="description" rows="4" maxlength="2000" required></textarea></label>
+
+      <label id="f-org">Business / employer <input name="organization" maxlength="120"></label>
+      <label id="f-location">Location <input name="location" maxlength="120" placeholder="e.g. Library, Main Hall"></label>
+      <label id="f-price">Price <input name="price" maxlength="60" placeholder="e.g. UGX 20,000"></label>
+      <label id="f-deadline">Application deadline <input type="date" name="deadline"></label>
+
+      <label>Your name <input name="contactName" maxlength="80" required></label>
+      <div class="row">
+        <label>Phone <input name="contactPhone" maxlength="30"></label>
+        <label>Email <input type="email" name="contactEmail" maxlength="120"></label>
+      </div>
+
+      <label>Picture (max 2 MB) <input type="file" name="image" accept="image/*"></label>
+      <label id="f-remove" class="check" hidden><input type="checkbox" id="removeImage"> Remove current picture</label>
+
+      <label id="f-pin">Secret PIN (min 4 characters)
+        <input name="pin" type="password" minlength="4" required>
+        <small>You will need this PIN later to edit or delete your post. Keep it safe.</small>
+      </label>
+
+      <p id="formError" class="error" hidden></p>
+      <div class="actions">
+        <button type="button" id="cancelBtn" class="btn">Cancel</button>
+        <button type="submit" class="btn primary" id="saveBtn">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="/app.js"></script>
+</body>
+</html>
